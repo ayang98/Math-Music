@@ -1,0 +1,481 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% sample poster file 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% IGL Template
+% Last modified: Tue 19 Feb 2013 02:42:39 PM CST
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% documentclass option: pick one:
+% "presentation" for powerpoint-like talk,
+% "handout" for  printing,
+% "trans" for printing onto transparencies
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass[leqno,presentation]{beamer}
+%\documentclass[leqno, handout]{beamer}
+%\documentclass[leqno,trans]{beamer}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% beamerposter stuff
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[orientation=landscape, size=a0, scale=1.3]{beamerposter}
+\usepackage{pgf}
+\usepackage{tikz}
+% these packages may be needed 
+\usepackage{calc}
+\usepackage{times}
+\usepackage{type1cm}
+\usepackage[latin1]{inputenc}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{subcaption}
+\usepackage{showframe}
+\usepackage{amsmath}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% end beamerposter stuff
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% load standard packages
+
+\usepackage{amsmath,amssymb,latexsym, amsthm}
+\usepackage[english]{babel}
+
+
+%\usepackage{hyperref}
+%\hypersetup{pdfborderstyle={/S/U/W },pdfborder=0 0 1}
+
+%\usepackage{graphicx}
+%\DeclareGraphicsExtensions{.eps, .pdf,.jpg,.png, .tif}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% theme
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%% this seems to work fine
+
+\usetheme{Darmstadt}
+
+%\usetheme{Singapore}
+
+
+%% beamerposter example uses Berlin, but couldn't get rid of footers 
+
+%\usetheme{Berlin}
+%\usetheme{Warsaw}
+
+
+%\usetheme{PaloAlto}
+%\usetheme{AnnArbor}
+%\usetheme{CambridgeUS}
+%\usetheme{CambridgeUS}
+%\usetheme{Berkeley}
+%\usetheme{Madrid}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% begin macros
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% theorem declarations
+
+%\newtheorem{question1}{Question 1}
+%\newtheorem{question2}{Question 2}
+
+\theoremstyle{definition}
+%\newtheorem{brokenstickproblem}{Broken Stick Problem}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% end macros
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% title/author/date
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% size up title and author for poster 
+
+\title{
+\veryHuge
+Music and Sound Programming using Mathematical Patterns}
+  \author{
+  \LARGE
+  Habeen Chang, Zeyu (Bill) Hu, Zirun (Mike) Lin, Ye Luo*, Alex Yang, Hang Yang*}
+  
+
+%% uiuc and igl logos DON'T CHANGE ANYTHING HERE
+\institute{
+\raisebox{-2ex}{\includegraphics[width=3in]{rice.png}}
+%\hspace{4em}
+%\raisebox{-2ex}{\includegraphics[width=1in]{igl-logo-small.png}}
+% \hspace{2em} 
+{\Large\textcolor{blue!50!orange}{ \Huge{Rice Geometry Laboratory}}}
+}
+
+
+\newcommand\textbox[1]{%
+  \parbox{.333\textwidth}{#1}%
+}
+\date{\large \textbox{~\hfill}\textbox{\hfil RGL Open House, April 21,
+2017\hfil}\textbox{\hfill (*mentors)} }
+
+
+
+
+%% logo, shows up  in top left corner of each frame
+%\logo{%
+%\includegraphics[width=0.4in]{igl-logo-small.png}
+%}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% title frame 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{block}{}
+\titlepage
+\end{block}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% body of poster
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{columns}[t]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% left column
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{column}{.25\linewidth}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% left block 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{block}{Abstract}
+This project aims to explore musical sound effects based on the Fourier synthesis of sinusoidal waves with adjustable parameters derived from interesting mathematical patterns.
+This project consists of two stages:
+\begin{itemize}
+\item The first stage involves utilizing the Fourier Transform to decompose given sound waves into sinusoidal functions and perform frequency domain analysis of the waves. 
+\item For the second stage, we will incorporate nice mathematical patterns into musical composition using digital technology. 
+\item We currently have a programmable digital instrument capable of performing real-time frequency domain analysis as well as pitch/chord generation.
+\end{itemize}
+\end{block}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% end left block 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% left block 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{block}{Fourier Analysis}
+\vspace{1ex}
+\begin{itemize}
+\item Any periodic function can be written as an infinite sum of sinusoidal functions, known as its Fourier Series.
+\[ f(x) = \frac{1}{2} a_0 + \sum^\infty_{n = 1}{a_n \cos (nx)} + \sum^\infty_{n = 1}{b_n \sin (nx)}, \text{ where} \]
+\[ a_n = \frac{1}{\pi} \int^\pi_{-\pi} f(x) \cos (nx) \, dx, \quad b_n = \frac{1}{\pi} \int^\pi_{-\pi} f(x) \sin (nx) \, dx \]
+\item A sinusoidal function is often given by its amplitude at each given time. However, the frequency domain is preferred in digital signal processing and spectrogram analysis.
+\item This type of domain shows how the sound wave energy (amplitude) is distributed over a range of frequencies.
+%\begin{figure}
+%\centering
+%\includegraphics[height = 8cm, width = %16cm]{time_frequency_domain.png}
+%\end{figure}
+\item The Fourier Transform decomposes a function in time domain into a sum of sine wave  components in the frequency domain and plots the frequency of each sine wave against its corresponding amplitude. 
+\[ F(k) = \int^\infty_{-\infty} f(x) e^{-2 \pi i k x} dx \]
+% \item Furthermore, the Fourier transform outputs complex numbers as the frequency domain allows one to determine both the amplitude and phase of a sound wave.
+\end{itemize}
+\end{block}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% end left block 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% left block 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{block}{Nyquist-Shannon Sampling Theorem}
+\begin{itemize}
+\vspace{1ex}
+\item If a function which has a Fourier series representation has a maximum frequency of B, then it is completely determined by its samples taken at distances \( 1/(2B) \) apart from each other on the horizontal axis. 
+\item In digital signal processing, this theorem gives the minimum sampling rate required for the digital signal to accurately represent the analog signal. 
+\end{itemize}
+\end{block}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% end left block 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{column}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% end left column
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% middle column, wide
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{column}{.45\linewidth}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% center block 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \begin{block}{Fourier Series Representation}
+
+% % \[ f(x) = \frac{1}{2} a_0 + \sum^\infty_{n = 1}{a_n \cos (nx)} + \sum^\infty_{n = 1}{b_n \sin (nx)}, \text{ where} \]
+% % \[ a_n = \frac{1}{\pi} \int^\pi_{-\pi} f(x) \cos (nx) \, dx, \quad b_n = \frac{1}{\pi} \int^\pi_{-\pi} f(x) \sin (nx) \, dx \]
+
+% \end{block}
+
+% \begin{block}{Fourier Transform}
+
+% \[ F(k) = \int^\infty_{-\infty} f(x) e^{-2 \pi i k x} dx \]
+
+% \end{block}
+
+% \begin{block}{Nyquist-Shannon Sampling Theorem}
+
+% If \( f \in L_1(\mathbb{R}) \) and \( \hat{f} \), the Fourier transform of \( f \), is supported on the interval \( [-B, B] \), then 
+
+% \begin{equation} \label{eq:1}
+% f(x) = \sum_{n \in \mathbb{Z}} f\left( \frac{n}{2B} \right) \text{sinc} \left( 2B \left( x - \frac{n}{2B} \right) \right),
+% \end{equation}
+
+% where the equality holds in the \( L_2 \) sense, that is, the series in the RHS of \eqref{eq:1} converges to \( f \) in \( L_2(\mathbb{R}) \).
+
+% \qed
+
+% \end{block}
+
+\begin{block}{Spectrograms of Sound Waves}
+
+\begin{figure}[p]
+    \centering
+	\begin{minipage}{.25 \textwidth}
+    \centering
+    \includegraphics[width=.4\linewidth]{A_major.PNG}
+    \captionof{figure}{A Major chord.}
+    \label{tf1}
+	\end{minipage}%
+    \begin{minipage}{.4 \textwidth}
+    \centering
+    \includegraphics[width=.8\linewidth]{audioplot.png}
+    \captionof{figure}{Composite soundwave.}
+    \label{tf2}
+	\end{minipage}%
+	\begin{minipage}{.3 \textwidth}
+    \centering
+    \includegraphics[width=.8\linewidth]{spectrogram.png}
+    \captionof{figure}{Spectrogram frequency visualization.}
+    \label{tf3}
+	\end{minipage}
+\end{figure}
+
+\end{block}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% end center block 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% center block 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{block}{Fourier Transformations of Periodic Functions}
+
+\begin{figure}[p]
+    \centering
+	\begin{minipage}{.28 \textwidth}
+    \centering
+    \includegraphics[width=.8\linewidth]{time_frequency_domain.png}
+    \captionof{figure}{Decomposition of soundwave into frequency components}
+    \label{tf1}
+	\end{minipage}%
+    \begin{minipage}{.38 \textwidth}
+    \centering
+    \includegraphics[width=.6\linewidth]{complex_wave.png}
+    \captionof{figure}{An example sound wave in the time domain}
+    \label{tf2}
+	\end{minipage}%
+	\begin{minipage}{.35 \textwidth}
+    \centering
+    \includegraphics[width=.9\linewidth]{fft.png}
+    \captionof{figure}{Same wave transformed to the frequency domain}
+    \label{tf3}
+	\end{minipage}
+\end{figure}
+
+\end{block}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{block}{Fourier Transformations of Aperiodic Functions}
+
+\begin{figure}[p]
+    \centering
+	\begin{minipage}{.33 \textwidth}
+    \centering
+    \includegraphics[width=.65\linewidth]{Aperiodic_Time_Domain.png}
+    \caption{A 0.2s-long guitar sound.}
+    \label{tf1}
+	\end{minipage}%
+    \begin{minipage}{.33 \textwidth}
+    \centering
+    \includegraphics[width=.65\linewidth]{Aperiodic_Fourier_Domain.png}
+    \captionof{figure}{The Fourier Transform.}
+    \label{tf2}
+	\end{minipage}
+\end{figure}
+\end{block}
+% end center block 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{block}{Fourier Synthesis}
+
+\begin{figure}[p]
+    \centering
+	\begin{minipage}{.25 \textwidth}
+    \centering
+    \includegraphics[width=.9\linewidth]{squarewave.png}
+    \captionof{figure}{Square wave.}
+    \label{1}
+	\end{minipage}%
+	\begin{minipage}{.5 \textwidth}
+    \centering
+    \includegraphics[width=.9\linewidth]{synthesis1.png}
+    \captionof{figure}{2 terms of the Fourier sine series.}
+    \label{2}
+	\end{minipage}%
+    \begin{minipage}{.25 \textwidth}
+    \centering
+    \includegraphics[width=.9\linewidth]{synthesis2.png}
+    \captionof{figure}{10 terms of the Fourier sine series.}
+    \label{3}
+	\end{minipage}%
+\end{figure}
+
+\end{block}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% center block 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{columns}
+\begin{column}{.49\linewidth}
+\begin{block}{Sampling Visualization}
+
+\begin{figure}
+    \centering
+   	\includegraphics[width=.8\linewidth]{samplingpic2.jpg}
+    \caption{Sampling}
+    \label{sampling}
+\end {figure}
+
+\end{block}
+\end{column}
+
+\begin{column}{.49\linewidth}
+\begin{block}{Derivative of a Sound Wave}
+\begin{figure}
+    \centering
+   	\includegraphics[width=.8\linewidth]{coolfunction2.jpg}
+    \caption{The original function(blue) and its derivative(orange)}
+    \label{sderivative}
+\end {figure}
+\end{block}
+\end{column}
+\end{columns}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% end center block 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{column}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% end middle column, wide
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% right column, narrow 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{column}{.25\linewidth}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% right block 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{block}{Results}
+\vspace{1ex}
+\begin{itemize}
+\item The derivative of a sinusoidal function will produce a sound that is either more or less bright than the sound of the original function. 
+\item The derivative of the function $f(t)=\sum_{n=1}^{\infty} \frac{1}{n^2}\sin{(nwt)}$\\ has the same frequency as f(t) but with a phase shift and larger amplitude. The audible result is a significantly brighter tone produced.
+\item When a periodic function is written as a sum of sinusoidal functions, a phase shift in each of the individual functions corresponds to a time delay for that particular tone being played.
+\item Phase shifts of any magnitude are shown to be inaudible by the human ear, demonstrated by modulating the function $f(t)=\sin{wt}+\sin{(2wt+\phi)}$\\
+\end{itemize}
+\end{block}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% end right block 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% right block 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{block}{Further Work}
+\vspace{1ex}
+\begin{itemize}
+\item We will continue to experiment with the mathematical properties of sound waves using computer software.
+\item Additionally, we also hope to utilize a digital synthesizer and amplifier to generate unique sounds through techniques such as resonance and distortion.
+\item We will incorporate nice patterns into musical composition by following mathematical rules behind why certain note progressions and chords are harmonically pleasing. 
+%Sound experiments will be done based on aural experience as well as mathematical pitch analysis. 
+\item Students and faculty at the Shepherd School of Music at Rice will be consulted for their necessary expertise. 
+\item The end result will be a short piece of electronic music composed entirely using Fourier analysis.
+\end{itemize}
+\end{block}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% end right block 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% right block 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{block}{References}
+\vspace{1ex}
+\begin{itemize}
+\item"Fourier Series." Fourier Series -from Wolfram MathWorld. Wolfram, n.d. Web. 10 Apr. 2017.
+\item"Time and Frequency Domain." Time and Frequency Domain. Erzetich, n.d. Web. 10 Apr. 2017.
+\item"Documentation." Practical Introduction to Frequency-Domain Analysis - MATLAB and Simulink Example. Mathworks, n.d. Web. 10 Apr. 2017.
+\item Roberts, Gareth E. From Music to Mathematics: Exploring the Connections. Baltimore, MD: Johns Hopkins UP, 2016. Print.
+\item Lerman, Gilad, and Notes For Math 5467. The Shannon Sampling Theorem and Its Implications (n.d.): 1-2. Math.ums. University of Minnesota. Web. 3 Mar. 2017.
+%Hanna, J. Ray., and John H. Rowland. Fourier Series, Transforms, and Boundary Value Problems. Mineola, NY: Dover Publications, 2008. Print.
+%\vspace{32ex} %comment out when text is added
+\end{itemize}
+\end{block}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% end right block 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{column}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% end right column
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{columns}
+%%%%%%%%%%%%%%%
+%Funding Acknowledgements: Make sure you get this right before sending to printers
+%%%%%%%%%%%%%%%
+  \begin{block}{}
+   \begin{center}
+   %These posters are made with the support of University of Illinois at Urbana-Champaign Public Engagement Office
+  \end{center}
+  \end{block}
+
